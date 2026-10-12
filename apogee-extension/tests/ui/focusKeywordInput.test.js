@@ -221,7 +221,9 @@ test("opening on a new page clears a leftover focus keyword (#413)", () => {
   const ensureIdx = body.indexOf("await ensureTabUrl(tab)");
   assert.ok(ensureIdx !== -1, "tab URL resolved before the keyword check");
   assert.ok(
-    body.slice(ensureIdx).includes("clearKeywordOnPageChange(tab?.id, tab?.url)"),
+    body
+      .slice(ensureIdx)
+      .includes("clearKeywordOnPageChange(tab?.id, tab?.url)"),
     "restoreTabView shares the page-change check",
   );
 });
